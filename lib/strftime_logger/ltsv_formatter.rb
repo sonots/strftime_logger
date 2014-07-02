@@ -13,7 +13,8 @@ class StrftimeLogger
           message = ""
         end
       end
-      "#{format_message(message)}\n"
+      time = Time.now.iso8601
+      "time:#{time}\t#{format_message(message)}\n"
     end
 
     private

@@ -10,6 +10,7 @@ describe StrftimeLogger do
   end
   let(:log_dir)   { "#{File.dirname(__FILE__)}/log" }
   let(:today)     { Time.now.strftime "%Y%m%d"}
+  let(:now)       { Time.now.iso8601 }
 
   before do
     Dir.mkdir(log_dir)
@@ -25,8 +26,8 @@ describe StrftimeLogger do
     subject.write("test")
     subject.write({a:1, b:2})
     File.open("#{log_dir}/application.log.#{today}") do |f|
-      expect(f.gets).to eq "message:test\n"
-      expect(f.gets).to eq "a:1\tb:2\n"
+      expect(f.gets).to eq "time:#{now}\tmessage:test\n"
+      expect(f.gets).to eq "time:#{now}\ta:1\tb:2\n"
     end
   end
 end

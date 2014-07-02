@@ -4,8 +4,8 @@ A logger treats log rotation in strftime fashion.
 
 ## What is this for?
 
-This logger provides a feature to rotate logs in the basis of time although
-the ruby's built-in logger has a feature to rotate logs in the basis of log size.
+The ruby's built-in logger does log rotation in the basis of log size.
+In contrast, `StrftimeLogger` provides a feature to rotate logs in the basis of time.
 
 This logger allows to specify the log path with `strftime` format such as:
 
@@ -15,8 +15,9 @@ logger = StrftimeLogger.new('/var/log/application.log.%Y%m%d')
 
 which enables to rotate logs in each specific time.
 
-In facts, this logger does not rotate logs, but just outputs to the strftime formatted path directly,
-which results in avoiding locking files in log rotation. 
+In fact, this logger does not rotate logs, but outputs to the strftime formatted path directly. 
+
+This characteristic gives a side effect that it does not require to lock files in log rotation. 
 
 ## Installation
 
@@ -83,6 +84,10 @@ class SampleFormatter
   end
 end
 ```
+
+## ToDo
+
+* Support datetime_format
 
 ## ChangeLog
 

@@ -82,9 +82,16 @@ class StrftimeLogger
     end
   end
 
-  def self.str_to_level(str)
-    SEV_LABEL.index(str.to_s.downcase.to_sym)
+  def level=(level)
+    raise ArgumentError, 'An argument for #level= must be an Integer such as 0, 2. You may use Pfsys::Logger::DEBUG, Pfsys::Logger::WARN' unless level.is_a?(Integer)
+    @level = level
   end 
+
+  def self.str_to_level(str)
+    level = SEV_LABEL.index(str.to_s.downcase.to_sym)
+    raise ArgumentError, 'An argument for #log_level= must be a String or Symbol such as DEBUG, :warn' unless level
+    level
+  end
 
   def log_level=(log_level)
     @level = self.class.str_to_level(log_level)

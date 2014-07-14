@@ -54,6 +54,12 @@ are replaced with `\\n` so that the log message will be in one line.
 logger.level = StrftimeLogger::WARN
 ```
 
+Or, short-hand: 
+
+```
+logger.log_level = 'WARN'
+```
+
 ### Change the Formatter
 
 It is possible to change the logger formmater as:

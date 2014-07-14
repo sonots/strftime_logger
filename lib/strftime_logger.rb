@@ -82,6 +82,14 @@ class StrftimeLogger
     end
   end
 
+  def self.str_to_level(str)
+    SEV_LABEL.index(str.to_s.downcase.to_sym)
+  end 
+
+  def log_level=(log_level)
+    @level = self.class.str_to_level(log_level)
+  end 
+
   # @param severity [Int] log severity
   def add(severity, message = nil, &block)
     severity ||= UNKNOWN

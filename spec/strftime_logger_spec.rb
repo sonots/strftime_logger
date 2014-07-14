@@ -81,6 +81,14 @@ describe StrftimeLogger do
       expect(File.read("#{log_dir}/application.log")).to eq "#{now} [WARN] test\n"
     end
 
+    it 'log_level=' do
+      logger = StrftimeLogger.new("#{log_dir}/application.log")
+      logger.log_level = 'WARN'
+      logger.info("test")
+      logger.warn("test")
+      expect(File.read("#{log_dir}/application.log")).to eq "#{now} [WARN] test\n"
+    end
+
     class MockAdapter
       def initialize(level, path)
       end

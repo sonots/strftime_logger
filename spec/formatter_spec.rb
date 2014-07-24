@@ -27,7 +27,7 @@ describe StrftimeLogger do
     end
     File.open("#{log_dir}/application.log.#{today}") do |f|
       expect(f.gets).to eq "#{now} [INFO] test\n"
-      expect(f.gets).to match(/#{Regexp.escape(now)} \[INFO\] ArgumentError test/)
+      expect(f.gets).to match(/#{Regexp.escape(now)} \[INFO\] ArgumentError \(test\)\\n.*formatter_spec\.rb/)
     end
   end
 
@@ -40,7 +40,7 @@ describe StrftimeLogger do
     end
     File.open("#{log_dir}/application.log.#{today}") do |f|
       expect(f.gets).to eq "test\n"
-      expect(f.gets).to match(/ArgumentError test/)
+      expect(f.gets).to match(/ArgumentError \(test\)\\n.*formatter_spec\.rb/)
     end
   end
 end

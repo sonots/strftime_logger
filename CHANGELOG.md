@@ -1,3 +1,9 @@
+# 0.0.3 (2014/07/25)
+
+Changes:
+
+* Shaw all backtrace lines when the logger received an error instance
+
 # 0.0.2 (2014/07/14)
 
 Enhancements:

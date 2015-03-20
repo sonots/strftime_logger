@@ -115,27 +115,27 @@ class StrftimeLogger
   end
   alias log add
 
-  def debug(msg, &block)
+  def debug(msg = nil, &block)
     add(DEBUG, msg, &block)
   end
 
-  def info(msg, &block)
+  def info(msg = nil, &block)
     add(INFO, msg, &block)
   end
 
-  def warn(msg, &block)
+  def warn(msg = nil, &block)
     add(WARN, msg, &block)
   end
 
-  def error(msg, &block)
+  def error(msg = nil, &block)
     add(ERROR, msg, &block)
   end
 
-  def fatal(msg,  &block)
+  def fatal(msg = nil,  &block)
     add(FATAL, msg, &block)
   end
 
-  def unknown(msg, &block)
+  def unknown(msg = nil, &block)
     add(UNKNOWN, msg, &block)
   end
 

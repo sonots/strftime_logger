@@ -34,6 +34,13 @@ describe StrftimeLogger do
       end
     end
 
+    %w[debug info warn error fatal unknown].each_with_index do |level, severity|
+      it "#{level} with block" do
+        subject.__send__(level) { "test" }
+        expect(File.read("#{log_dir}/application.log.#{today}")).to eq "#{now} [#{LEVEL_TEXT[severity]}] test\n"
+      end
+    end
+
     it 'multiline' do
       subject.info("foo\nbar")
       expect(File.read("#{log_dir}/application.log.#{today}")).to eq "#{now} [INFO] foo\\nbar\n"

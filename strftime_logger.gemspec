@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "strftime_logger"
-  gem.version       = "0.0.3"
+  gem.version       = "0.0.4"
   gem.authors       = ["Naotoshi Seo"]
   gem.email         = ["sonots@gmail.com"]
   gem.description   = %q{A logger treats log rotation in strftime fashion}

@@ -1,3 +1,9 @@
+# 0.0.4 (2015/03/21)
+
+Fixes:
+
+* logger method should accept nil for lazy loading as `log.debug { "lazy" }`
+
 # 0.0.3 (2014/07/25)
 
 Changes:

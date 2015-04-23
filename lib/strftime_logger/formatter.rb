@@ -36,7 +36,7 @@ class StrftimeLogger
       case message
       when ::Exception
         e = message
-        "#{e.class} (#{e.message})\\n  #{e.backtrace.join("\\n  ")}}"
+        "#{e.class} (#{e.message})\\n  #{e.backtrace.join("\\n  ")}"
       else
         message.to_s.gsub(/\n/, "\\n")
       end
